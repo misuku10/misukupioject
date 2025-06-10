@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<title>Симулятор Гуся</title>
+<style>
+    body {
+        background: #0f0f0f;
+        color: white;
+        font-family: 'Segoe UI', sans-serif;
+        text-align: center;
+        padding-top: 100px;
+        margin: 0;
+        height: 100vh;
+    }
+    h1 {
+        font-size: 3em;
+        margin-bottom: 40px;
+    }
+    input[type="text"] {
+        padding: 12px;
+        font-size: 1em;
+        width: 250px;
+        border: none;
+        outline: none;
+        background: #1a1a1a;
+        color: white;
+        border-radius: 10px;
+        animation: glow 2s linear infinite;
+    }
+    button {
+        padding: 12px 24px;
+        font-size: 1em;
+        margin-left: 15px;
+        background: #ffffff20;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    button:hover {
+        background: #ffffff40;
+    }
+    @keyframes glow {
+        0% { box-shadow: 0 0 5px red; }
+        25% { box-shadow: 0 0 10px orange; }
+        50% { box-shadow: 0 0 10px lime; }
+        75% { box-shadow: 0 0 10px cyan; }
+        100% { box-shadow: 0 0 5px red; }
+    }
+</style>
+</head>
+<body>
+    <h1>Играть в симулятор гуся</h1>
+    <form method="GET" action="/game">
+        <input type="text" name="username" placeholder="Введите имя" required autofocus />
+        <button type="submit">Играть</button>
+    </form>
+</body>
+</html>

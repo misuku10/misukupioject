@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<title>Симулятор Гуся</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+<script src="https://cdn.socket.io/4.7.2/socket.io.min.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<canvas id="gameCanvas"></canvas>
+<script>
+    const username = "{{ username }}";
+</script>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
