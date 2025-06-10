@@ -1,9 +1,14 @@
+import eventlet
+eventlet.monkey_patch()
+
 from flask import Flask, render_template, request
 from flask_socketio import SocketIO, emit
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
-socketio = SocketIO(app)
+
+# Включаем async_mode='eventlet' явно для SocketIO
+socketio = SocketIO(app, async_mode='eventlet')
 
 players = {}
 
@@ -44,4 +49,5 @@ def on_disconnect():
         emit('players_update', players, broadcast=True)
 
 if __name__ == '__main__':
+    # Запускаем через eventlet WSGI сервер
     socketio.run(app, debug=True)
