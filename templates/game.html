@@ -11,6 +11,17 @@
 <canvas id="gameCanvas"></canvas>
 <script>
     const username = "{{ username }}";
+
+    var socket = io();
+
+    // При подключении отправляем новое событие игрока
+    socket.emit('new_player', { username: username });
+
+    // Обработка обновления позиций всех игроков
+    socket.on('players_update', function(players) {
+        console.log(players);
+        // TODO: обновлять позицию гуся на canvas здесь
+    });
 </script>
 <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
